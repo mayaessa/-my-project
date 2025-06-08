@@ -1,11 +1,12 @@
+
 using System.Collections.Generic;
 using System.Linq;
 using NTierTodoApp.Models;
 
 namespace NTierTodoApp.DataAccess
 {
-    /// <summary>
-    /// مستودع البيانات لإدارة المهام باستخدام قائمة في الذاكرة.
+    // <summary>
+    /// مستودع البيانات لإدارة المهام باستخدام قائمة في الذاكرة 
     /// </summary>
     public class TaskRepository
     {
@@ -27,12 +28,14 @@ namespace NTierTodoApp.DataAccess
             return tasks.FirstOrDefault(t => t.Id == id);
         }
 
-        // TODO: تنفيذ دالة حذف المهمة
+        
         public void Delete(int id)
         {
-            // TODO: ابحث عن المهمة باستخدام id
-
-            // TODO: إذا كانت المهمة موجودة، قم بإزالتها من القائمة
+            var task = tasks.FirstOrDefault(t => t.Id == id);
+            if (task != null)
+            {
+                tasks.Remove(task);
+            }
         }
     }
 }
